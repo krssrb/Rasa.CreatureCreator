@@ -47,7 +47,7 @@ namespace Rasa.CreatureCreator
             }
 
             // check for level
-            if (uint.TryParse(Level_textBox.Text, out var level))
+            if (uint.TryParse(Level_ComboBox.Text, out var level))
             {
                 if (level > 50 || level < 1)
                 {
@@ -221,6 +221,105 @@ namespace Rasa.CreatureCreator
             }
             else
                 MessageBox.Show("There is no creature with that dbId in database!");
+        }
+
+        private void UpdateCreature_Button_OnClick(object sender, EventArgs e)
+        {
+            var creature = new CreaturesEntry
+            {
+                DbId = uint.Parse(PickCreature_textBox.Text)
+            };
+
+            // check classId
+            if (uint.TryParse(ManageCreature_ClassId_TextBox.Text, out var classId))
+            {
+                if (Program.LoadedCreatures.ContainsKey(classId))
+                    creature.ClassId = classId;
+                else
+                {
+                    MessageBox.Show("Given classId is not creature");
+                    return;
+                }
+            }
+            else
+            {
+                MessageBox.Show("classId parameter is empty");
+                return;
+            }
+
+            // check for faction
+            if (uint.TryParse(ManageCreature_Faction_TextBox.Text, out var faction))
+            {
+                creature.Faction = faction;
+            }
+            else
+            {
+                MessageBox.Show("faction parameter is empty");
+                return;
+            }
+
+            // check for level
+            if (uint.TryParse(ManageCreature_Level_TextBox.Text, out var level))
+            {
+                if (level > 50 || level < 1)
+                {
+                    MessageBox.Show("invalid level parameter");
+                    return;
+                }
+
+                creature.Level = level;
+            }
+            else
+            {
+                MessageBox.Show("level parameter is empty");
+                return;
+            }
+
+            // check for maxHitPoints
+            if (uint.TryParse(ManageCreature_MaxHitPoints_TextBox.Text, out var maxHitPoints))
+            {
+                if (maxHitPoints < 1)
+                {
+                    MessageBox.Show("invalid maxHitPoints parameter");
+                    return;
+                }
+
+                creature.MaxHitPoints = maxHitPoints;
+            }
+            else
+            {
+                MessageBox.Show("maxHitPoints parameter is empty");
+                return;
+            }
+
+            // check for nameId
+            if (uint.TryParse(ManageCreature_NameId_TextBox.Text, out var nameId))
+            {
+                creature.NameId = nameId;
+            }
+            else
+            {
+                MessageBox.Show("nameId parameter is empty");
+                return;
+            }
+
+            // check for comment
+            if (ManageCreature_Comment_TextBox.Text == "" || ManageCreature_Comment_TextBox.Text == "0")
+            {
+                MessageBox.Show("Please enter some comment about creature");
+                return;
+            }
+            else
+                creature.Comment = ManageCreature_Comment_TextBox.Text;
+
+            CreatureTable.UpdateCreature(creature);
+
+            MessageBox.Show($"Update creature with: DbId {creature.DbId}");
+        }
+
+        private void PickColorButton_OnClick(object sender, EventArgs e)
+        {
+            PickColor_Dialog.ShowDialog();
         }
     }
 }

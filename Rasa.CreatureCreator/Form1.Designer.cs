@@ -30,13 +30,13 @@
         {
             this.CreateCreatreTab = new System.Windows.Forms.TabControl();
             this.CreateCreatureTab = new System.Windows.Forms.TabPage();
-            this.IsNpc_checkBox = new System.Windows.Forms.CheckBox();
+            this.PickColor_Button = new System.Windows.Forms.Button();
             this.PickClassIdList = new System.Windows.Forms.ListBox();
+            this.IsNpc_checkBox = new System.Windows.Forms.CheckBox();
             this.PickedClassId = new System.Windows.Forms.Label();
             this.PickClassId_button = new System.Windows.Forms.Button();
             this.Comment_textBox = new System.Windows.Forms.TextBox();
             this.Comment = new System.Windows.Forms.Label();
-            this.Level_textBox = new System.Windows.Forms.TextBox();
             this.MaxHitPoints_textBox = new System.Windows.Forms.TextBox();
             this.NameId_textBox = new System.Windows.Forms.TextBox();
             this.Faction_textBox = new System.Windows.Forms.TextBox();
@@ -55,6 +55,7 @@
             this.coordY = new System.Windows.Forms.Label();
             this.coordX = new System.Windows.Forms.Label();
             this.createCreatureButton = new System.Windows.Forms.Button();
+            this.Level_ComboBox = new System.Windows.Forms.ComboBox();
             this.ManageCreatureTab = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.PicCreature_Label = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.PickColor_Dialog = new System.Windows.Forms.ColorDialog();
             this.CreateCreatreTab.SuspendLayout();
             this.CreateCreatureTab.SuspendLayout();
             this.ManageCreatureTab.SuspendLayout();
@@ -98,13 +100,14 @@
             // 
             // CreateCreatureTab
             // 
-            this.CreateCreatureTab.Controls.Add(this.IsNpc_checkBox);
+            this.CreateCreatureTab.BackColor = System.Drawing.Color.Silver;
+            this.CreateCreatureTab.Controls.Add(this.PickColor_Button);
             this.CreateCreatureTab.Controls.Add(this.PickClassIdList);
+            this.CreateCreatureTab.Controls.Add(this.IsNpc_checkBox);
             this.CreateCreatureTab.Controls.Add(this.PickedClassId);
             this.CreateCreatureTab.Controls.Add(this.PickClassId_button);
             this.CreateCreatureTab.Controls.Add(this.Comment_textBox);
             this.CreateCreatureTab.Controls.Add(this.Comment);
-            this.CreateCreatureTab.Controls.Add(this.Level_textBox);
             this.CreateCreatureTab.Controls.Add(this.MaxHitPoints_textBox);
             this.CreateCreatureTab.Controls.Add(this.NameId_textBox);
             this.CreateCreatureTab.Controls.Add(this.Faction_textBox);
@@ -123,6 +126,7 @@
             this.CreateCreatureTab.Controls.Add(this.coordY);
             this.CreateCreatureTab.Controls.Add(this.coordX);
             this.CreateCreatureTab.Controls.Add(this.createCreatureButton);
+            this.CreateCreatureTab.Controls.Add(this.Level_ComboBox);
             this.CreateCreatureTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CreateCreatureTab.Location = new System.Drawing.Point(4, 22);
             this.CreateCreatureTab.Name = "CreateCreatureTab";
@@ -130,7 +134,26 @@
             this.CreateCreatureTab.Size = new System.Drawing.Size(461, 452);
             this.CreateCreatureTab.TabIndex = 0;
             this.CreateCreatureTab.Text = "CreateCreature";
-            this.CreateCreatureTab.UseVisualStyleBackColor = true;
+            // 
+            // PickColor_Button
+            // 
+            this.PickColor_Button.Location = new System.Drawing.Point(6, 417);
+            this.PickColor_Button.Name = "PickColor_Button";
+            this.PickColor_Button.Size = new System.Drawing.Size(75, 23);
+            this.PickColor_Button.TabIndex = 51;
+            this.PickColor_Button.Text = "PickColor";
+            this.PickColor_Button.UseVisualStyleBackColor = true;
+            this.PickColor_Button.Click += new System.EventHandler(this.PickColorButton_OnClick);
+            // 
+            // PickClassIdList
+            // 
+            this.PickClassIdList.FormattingEnabled = true;
+            this.PickClassIdList.Location = new System.Drawing.Point(86, 10);
+            this.PickClassIdList.Name = "PickClassIdList";
+            this.PickClassIdList.Size = new System.Drawing.Size(272, 199);
+            this.PickClassIdList.TabIndex = 48;
+            this.PickClassIdList.Visible = false;
+            this.PickClassIdList.Click += new System.EventHandler(this.LetTest);
             // 
             // IsNpc_checkBox
             // 
@@ -141,16 +164,6 @@
             this.IsNpc_checkBox.TabIndex = 49;
             this.IsNpc_checkBox.Text = "isNpc";
             this.IsNpc_checkBox.UseVisualStyleBackColor = true;
-            // 
-            // PickClassIdList
-            // 
-            this.PickClassIdList.FormattingEnabled = true;
-            this.PickClassIdList.Location = new System.Drawing.Point(244, 8);
-            this.PickClassIdList.Name = "PickClassIdList";
-            this.PickClassIdList.Size = new System.Drawing.Size(204, 329);
-            this.PickClassIdList.TabIndex = 48;
-            this.PickClassIdList.Visible = false;
-            this.PickClassIdList.Click += new System.EventHandler(this.LetTest);
             // 
             // PickedClassId
             // 
@@ -187,14 +200,6 @@
             this.Comment.TabIndex = 44;
             this.Comment.Text = "comment";
             // 
-            // Level_textBox
-            // 
-            this.Level_textBox.Location = new System.Drawing.Point(164, 67);
-            this.Level_textBox.Name = "Level_textBox";
-            this.Level_textBox.Size = new System.Drawing.Size(57, 20);
-            this.Level_textBox.TabIndex = 43;
-            this.Level_textBox.Text = "0";
-            // 
             // MaxHitPoints_textBox
             // 
             this.MaxHitPoints_textBox.Location = new System.Drawing.Point(163, 99);
@@ -202,6 +207,7 @@
             this.MaxHitPoints_textBox.Size = new System.Drawing.Size(57, 20);
             this.MaxHitPoints_textBox.TabIndex = 42;
             this.MaxHitPoints_textBox.Text = "0";
+            this.MaxHitPoints_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // NameId_textBox
             // 
@@ -210,6 +216,7 @@
             this.NameId_textBox.Size = new System.Drawing.Size(57, 20);
             this.NameId_textBox.TabIndex = 41;
             this.NameId_textBox.Text = "0";
+            this.NameId_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // Faction_textBox
             // 
@@ -218,6 +225,7 @@
             this.Faction_textBox.Size = new System.Drawing.Size(57, 20);
             this.Faction_textBox.TabIndex = 40;
             this.Faction_textBox.Text = "0";
+            this.Faction_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // NameId
             // 
@@ -262,6 +270,8 @@
             this.ClassId_textBox.Size = new System.Drawing.Size(57, 20);
             this.ClassId_textBox.TabIndex = 35;
             this.ClassId_textBox.Text = "0";
+            this.ClassId_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
+            this.ClassId_textBox.Leave += new System.EventHandler(this.ClassId_textBox_Leave);
             // 
             // ClassId
             // 
@@ -279,6 +289,7 @@
             this.rotation_textBox.Size = new System.Drawing.Size(58, 20);
             this.rotation_textBox.TabIndex = 33;
             this.rotation_textBox.Text = "0";
+            this.rotation_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // rotation
             // 
@@ -296,6 +307,7 @@
             this.coordZ_textBox.Size = new System.Drawing.Size(58, 20);
             this.coordZ_textBox.TabIndex = 31;
             this.coordZ_textBox.Text = "0";
+            this.coordZ_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // coordY_textBox
             // 
@@ -304,6 +316,7 @@
             this.coordY_textBox.Size = new System.Drawing.Size(58, 20);
             this.coordY_textBox.TabIndex = 30;
             this.coordY_textBox.Text = "0";
+            this.coordY_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // coordX_textBox
             // 
@@ -312,6 +325,7 @@
             this.coordX_textBox.Size = new System.Drawing.Size(58, 20);
             this.coordX_textBox.TabIndex = 29;
             this.coordX_textBox.Text = "0";
+            this.coordX_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // coordZ
             // 
@@ -350,8 +364,72 @@
             this.createCreatureButton.UseVisualStyleBackColor = true;
             this.createCreatureButton.Click += new System.EventHandler(this.CreateCreatureButton_Click);
             // 
+            // Level_ComboBox
+            // 
+            this.Level_ComboBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.Level_ComboBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.Level_ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Level_ComboBox.FormattingEnabled = true;
+            this.Level_ComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50"});
+            this.Level_ComboBox.Location = new System.Drawing.Point(164, 67);
+            this.Level_ComboBox.Name = "Level_ComboBox";
+            this.Level_ComboBox.Size = new System.Drawing.Size(57, 21);
+            this.Level_ComboBox.TabIndex = 50;
+            this.Level_ComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
+            // 
             // ManageCreatureTab
             // 
+            this.ManageCreatureTab.BackColor = System.Drawing.Color.Silver;
             this.ManageCreatureTab.Controls.Add(this.button1);
             this.ManageCreatureTab.Controls.Add(this.PicCreature_Label);
             this.ManageCreatureTab.Controls.Add(this.PickCreature_textBox);
@@ -383,7 +461,6 @@
             this.ManageCreatureTab.Size = new System.Drawing.Size(461, 452);
             this.ManageCreatureTab.TabIndex = 1;
             this.ManageCreatureTab.Text = "ManageCreature";
-            this.ManageCreatureTab.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -393,6 +470,7 @@
             this.button1.TabIndex = 74;
             this.button1.Text = "Update Creature";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.UpdateCreature_Button_OnClick);
             // 
             // PicCreature_Label
             // 
@@ -454,6 +532,7 @@
             this.ManageCreature_Level_TextBox.Size = new System.Drawing.Size(57, 20);
             this.ManageCreature_Level_TextBox.TabIndex = 67;
             this.ManageCreature_Level_TextBox.Text = "0";
+            this.ManageCreature_Level_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // ManageCreature_MaxHitPoints_TextBox
             // 
@@ -462,6 +541,7 @@
             this.ManageCreature_MaxHitPoints_TextBox.Size = new System.Drawing.Size(57, 20);
             this.ManageCreature_MaxHitPoints_TextBox.TabIndex = 66;
             this.ManageCreature_MaxHitPoints_TextBox.Text = "0";
+            this.ManageCreature_MaxHitPoints_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // ManageCreature_NameId_TextBox
             // 
@@ -470,6 +550,7 @@
             this.ManageCreature_NameId_TextBox.Size = new System.Drawing.Size(57, 20);
             this.ManageCreature_NameId_TextBox.TabIndex = 65;
             this.ManageCreature_NameId_TextBox.Text = "0";
+            this.ManageCreature_NameId_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // ManageCreature_Faction_TextBox
             // 
@@ -478,6 +559,7 @@
             this.ManageCreature_Faction_TextBox.Size = new System.Drawing.Size(57, 20);
             this.ManageCreature_Faction_TextBox.TabIndex = 64;
             this.ManageCreature_Faction_TextBox.Text = "0";
+            this.ManageCreature_Faction_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // ManageCreature_NameId_Label
             // 
@@ -522,6 +604,7 @@
             this.ManageCreature_ClassId_TextBox.Size = new System.Drawing.Size(57, 20);
             this.ManageCreature_ClassId_TextBox.TabIndex = 59;
             this.ManageCreature_ClassId_TextBox.Text = "0";
+            this.ManageCreature_ClassId_TextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // ManageCreature_ClassId_Label
             // 
@@ -539,6 +622,7 @@
             this.textBox7.Size = new System.Drawing.Size(58, 20);
             this.textBox7.TabIndex = 57;
             this.textBox7.Text = "0";
+            this.textBox7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // label8
             // 
@@ -556,6 +640,7 @@
             this.textBox8.Size = new System.Drawing.Size(58, 20);
             this.textBox8.TabIndex = 55;
             this.textBox8.Text = "0";
+            this.textBox8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // textBox9
             // 
@@ -564,6 +649,7 @@
             this.textBox9.Size = new System.Drawing.Size(58, 20);
             this.textBox9.TabIndex = 54;
             this.textBox9.Text = "0";
+            this.textBox9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // textBox10
             // 
@@ -572,6 +658,7 @@
             this.textBox10.Size = new System.Drawing.Size(58, 20);
             this.textBox10.TabIndex = 53;
             this.textBox10.Text = "0";
+            this.textBox10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // label9
             // 
@@ -628,7 +715,6 @@
         private System.Windows.Forms.Button PickClassId_button;
         private System.Windows.Forms.TextBox Comment_textBox;
         private System.Windows.Forms.Label Comment;
-        private System.Windows.Forms.TextBox Level_textBox;
         private System.Windows.Forms.TextBox MaxHitPoints_textBox;
         private System.Windows.Forms.TextBox NameId_textBox;
         private System.Windows.Forms.TextBox Faction_textBox;
@@ -673,6 +759,9 @@
         private System.Windows.Forms.TextBox PickCreature_textBox;
         private System.Windows.Forms.Label PicCreature_Label;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox Level_ComboBox;
+        private System.Windows.Forms.Button PickColor_Button;
+        private System.Windows.Forms.ColorDialog PickColor_Dialog;
     }
 }
 

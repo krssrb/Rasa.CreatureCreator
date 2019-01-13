@@ -12,6 +12,7 @@ namespace Rasa.Database.Tables.World
         private static readonly MySqlCommand AddCreatureCommand = new MySqlCommand("INSERT INTO `creatures` (`classId`, `faction`, `level`, `maxhitPoints`, `nameId`, `comment`) VALUES (@ClassId, @Faction, @Level, @MaxHitPoints, @NameId, @Comment)");
         private static readonly MySqlCommand GetCreatureCommand = new MySqlCommand("SELECT * FROM creatures WHERE dbId = @DbId");
         private static readonly MySqlCommand LoadCreaturesCommand = new MySqlCommand("SELECT * FROM creatures");
+        private static readonly MySqlCommand UpdateCreatureCommand = new MySqlCommand("UPDATE creatures SET classId = @ClassId, faction = @Faction, level = @Level, maxHitPoints = @MaxHitPoints, nameId = @NameId, comment = @Comment WHERE dbId = @DbId");
 
         public static void Initialize()
         {
@@ -31,9 +32,19 @@ namespace Rasa.Database.Tables.World
 
             LoadCreaturesCommand.Connection = GameDatabaseAccess.WorldConnection;
             LoadCreaturesCommand.Prepare();
+
+            UpdateCreatureCommand.Connection = GameDatabaseAccess.WorldConnection;
+            UpdateCreatureCommand.Parameters.Add("@DbId", MySqlDbType.UInt32);
+            UpdateCreatureCommand.Parameters.Add("@Classid", MySqlDbType.UInt32);
+            UpdateCreatureCommand.Parameters.Add("@Faction", MySqlDbType.UInt32);
+            UpdateCreatureCommand.Parameters.Add("@Level", MySqlDbType.UInt32);
+            UpdateCreatureCommand.Parameters.Add("@MaxHitPoints", MySqlDbType.UInt32);
+            UpdateCreatureCommand.Parameters.Add("@NameId", MySqlDbType.UInt32);
+            UpdateCreatureCommand.Parameters.Add("@Comment", MySqlDbType.String);
+            UpdateCreatureCommand.Prepare();
         }
 
-        public static List<CreaturesEntry> LoadCreatures()
+        internal static List<CreaturesEntry> LoadCreatures()
         {
             lock (GameDatabaseAccess.WorldLock)
             {
@@ -47,7 +58,7 @@ namespace Rasa.Database.Tables.World
             }
         }
 
-        public static bool AddCreature(CreaturesEntry creature)
+        internal static bool AddCreature(CreaturesEntry creature)
         {
             try
             {
@@ -72,13 +83,28 @@ namespace Rasa.Database.Tables.World
             return true;
         }
 
-        public static CreaturesEntry GetCreature(uint dbId)
+        internal static CreaturesEntry GetCreature(uint dbId)
         {
             lock (GameDatabaseAccess.WorldLock)
             {
                 GetCreatureCommand.Parameters["@DbId"].Value = dbId;
                 using (var reader = GetCreatureCommand.ExecuteReader())
                     return CreaturesEntry.Read(reader);
+            }
+        }
+
+        internal static void UpdateCreature(CreaturesEntry creature)
+        {
+            lock (GameDatabaseAccess.WorldLock)
+            {
+                UpdateCreatureCommand.Parameters["@DbId"].Value = creature.DbId;
+                UpdateCreatureCommand.Parameters["@ClassId"].Value = creature.ClassId;
+                UpdateCreatureCommand.Parameters["@Faction"].Value = creature.Faction;
+                UpdateCreatureCommand.Parameters["@Level"].Value = creature.Level;
+                UpdateCreatureCommand.Parameters["@MaxHitPoints"].Value = creature.MaxHitPoints;
+                UpdateCreatureCommand.Parameters["@NameId"].Value = creature.NameId;
+                UpdateCreatureCommand.Parameters["@Comment"].Value = creature.Comment;
+                UpdateCreatureCommand.ExecuteNonQuery();
             }
         }
     }

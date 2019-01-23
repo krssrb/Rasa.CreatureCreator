@@ -15,6 +15,7 @@ namespace Rasa.CreatureCreator
     {
         public static Config Config { get; private set; }
         public static Dictionary<uint, EntityClass> LoadedCreatures = new Dictionary<uint, EntityClass>();
+        public static Dictionary<uint, EntityClass> LoadedEquipment = new Dictionary<uint, EntityClass>();
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -53,6 +54,7 @@ namespace Rasa.CreatureCreator
         private static void LoadEntityClasses()
         {
             var entityClassList = EntityClassTable.LoadEntityClass();
+            var equipableClassList = EquipableClassTable.LoadEquipableClasses();
 
             foreach (var entityClass in entityClassList)
             {
@@ -60,6 +62,7 @@ namespace Rasa.CreatureCreator
                 var augList = new List<AugmentationType>();
                 var augmentations = Regex.Split(entityClass.Augmentations, @"\D+");
                 var isCreature = false;
+                var isEquipment = false;
 
                 foreach (var value in augmentations)
                     if (int.TryParse(value, out var augmentation))
@@ -68,6 +71,11 @@ namespace Rasa.CreatureCreator
                         if ((AugmentationType)augmentation == AugmentationType.Creature)
                             isCreature = true;
 
+                        if ((AugmentationType)augmentation == AugmentationType.Equipable)
+                            isEquipment = true;
+
+                        if ((AugmentationType)augmentation == AugmentationType.Equipable && (AugmentationType)augmentation == AugmentationType.Item)
+                            isEquipment = true;
                     };
 
                 if (isCreature)
@@ -79,7 +87,21 @@ namespace Rasa.CreatureCreator
                     augList,
                     entityClass.TargetFlag
                     ));
+
+                if (isEquipment)
+                    LoadedEquipment.Add(entityClass.ClassId, new EntityClass(
+                    entityClass.ClassId,
+                    entityClass.ClassName,
+                    entityClass.MeshId,
+                    entityClass.ClassCollisionRole,
+                    augList,
+                    entityClass.TargetFlag
+                    ));
             };
+
+            // Load EquipableClasses
+            foreach (var equipableClass in equipableClassList)
+                LoadedEquipment[equipableClass.ClassId].Equipable = equipableClass;
         }
     }
 }

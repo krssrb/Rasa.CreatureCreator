@@ -28,8 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CreateCreatreTab = new System.Windows.Forms.TabControl();
+            this.CC_TabMenu = new System.Windows.Forms.TabControl();
             this.CreateCreatureTab = new System.Windows.Forms.TabPage();
+            this.CC_Panel_Buttons = new System.Windows.Forms.Panel();
+            this.createCreatureButton = new System.Windows.Forms.Button();
+            this.CC_Panel_Main = new System.Windows.Forms.Panel();
+            this.CC_SetAppearence_Panel = new System.Windows.Forms.Panel();
+            this.CC_Legs_Panel = new System.Windows.Forms.Panel();
+            this.CC_Torso_Panel = new System.Windows.Forms.Panel();
+            this.CC_Gloves_Panel = new System.Windows.Forms.Panel();
+            this.CC_Shoes_Panel = new System.Windows.Forms.Panel();
+            this.CC_Helmet_Panel = new System.Windows.Forms.Panel();
+            this.CC_Hair_Panel = new System.Windows.Forms.Panel();
+            this.CC_Face_Panel = new System.Windows.Forms.Panel();
+            this.CC_PickColors_Label = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.CC_Legs_ComboBox = new System.Windows.Forms.ComboBox();
+            this.CC_Weapon_ComboBox = new System.Windows.Forms.ComboBox();
+            this.CC_Hair_ComboBox = new System.Windows.Forms.ComboBox();
+            this.CC_Helmet_ComboBox = new System.Windows.Forms.ComboBox();
+            this.CC_Shoes_ComboBox = new System.Windows.Forms.ComboBox();
+            this.CC_Gloves_ComboBox = new System.Windows.Forms.ComboBox();
+            this.CC_Torso_ComboBox = new System.Windows.Forms.ComboBox();
+            this.CC_Face_ComboBox = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CC_Appearence_Hair = new System.Windows.Forms.Label();
+            this.CC_Appearence_Face = new System.Windows.Forms.Label();
             this.PickColor_Button = new System.Windows.Forms.Button();
             this.PickClassIdList = new System.Windows.Forms.ListBox();
             this.IsNpc_checkBox = new System.Windows.Forms.CheckBox();
@@ -54,8 +83,8 @@
             this.coordZ = new System.Windows.Forms.Label();
             this.coordY = new System.Windows.Forms.Label();
             this.coordX = new System.Windows.Forms.Label();
-            this.createCreatureButton = new System.Windows.Forms.Button();
             this.Level_ComboBox = new System.Windows.Forms.ComboBox();
+            this.CC_SetAppearence_CheckButton = new System.Windows.Forms.CheckBox();
             this.ManageCreatureTab = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.PicCreature_Label = new System.Windows.Forms.Label();
@@ -82,287 +111,559 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.PickColor_Dialog = new System.Windows.Forms.ColorDialog();
-            this.CreateCreatreTab.SuspendLayout();
+            this.CC_ColorDialog = new System.Windows.Forms.ColorDialog();
+            this.CC_TabMenu.SuspendLayout();
             this.CreateCreatureTab.SuspendLayout();
+            this.CC_Panel_Buttons.SuspendLayout();
+            this.CC_Panel_Main.SuspendLayout();
+            this.CC_SetAppearence_Panel.SuspendLayout();
             this.ManageCreatureTab.SuspendLayout();
             this.SuspendLayout();
             // 
-            // CreateCreatreTab
+            // CC_TabMenu
             // 
-            this.CreateCreatreTab.Controls.Add(this.CreateCreatureTab);
-            this.CreateCreatreTab.Controls.Add(this.ManageCreatureTab);
-            this.CreateCreatreTab.Location = new System.Drawing.Point(2, 3);
-            this.CreateCreatreTab.Name = "CreateCreatreTab";
-            this.CreateCreatreTab.SelectedIndex = 0;
-            this.CreateCreatreTab.Size = new System.Drawing.Size(469, 478);
-            this.CreateCreatreTab.TabIndex = 25;
+            this.CC_TabMenu.Controls.Add(this.CreateCreatureTab);
+            this.CC_TabMenu.Controls.Add(this.ManageCreatureTab);
+            this.CC_TabMenu.Location = new System.Drawing.Point(2, 3);
+            this.CC_TabMenu.Name = "CC_TabMenu";
+            this.CC_TabMenu.SelectedIndex = 0;
+            this.CC_TabMenu.Size = new System.Drawing.Size(465, 477);
+            this.CC_TabMenu.TabIndex = 25;
             // 
             // CreateCreatureTab
             // 
+            this.CreateCreatureTab.AutoScroll = true;
             this.CreateCreatureTab.BackColor = System.Drawing.Color.Silver;
-            this.CreateCreatureTab.Controls.Add(this.PickColor_Button);
-            this.CreateCreatureTab.Controls.Add(this.PickClassIdList);
-            this.CreateCreatureTab.Controls.Add(this.IsNpc_checkBox);
-            this.CreateCreatureTab.Controls.Add(this.PickedClassId);
-            this.CreateCreatureTab.Controls.Add(this.PickClassId_button);
-            this.CreateCreatureTab.Controls.Add(this.Comment_textBox);
-            this.CreateCreatureTab.Controls.Add(this.Comment);
-            this.CreateCreatureTab.Controls.Add(this.MaxHitPoints_textBox);
-            this.CreateCreatureTab.Controls.Add(this.NameId_textBox);
-            this.CreateCreatureTab.Controls.Add(this.Faction_textBox);
-            this.CreateCreatureTab.Controls.Add(this.NameId);
-            this.CreateCreatureTab.Controls.Add(this.MaxHitPoints);
-            this.CreateCreatureTab.Controls.Add(this.Level);
-            this.CreateCreatureTab.Controls.Add(this.Faction);
-            this.CreateCreatureTab.Controls.Add(this.ClassId_textBox);
-            this.CreateCreatureTab.Controls.Add(this.ClassId);
-            this.CreateCreatureTab.Controls.Add(this.rotation_textBox);
-            this.CreateCreatureTab.Controls.Add(this.rotation);
-            this.CreateCreatureTab.Controls.Add(this.coordZ_textBox);
-            this.CreateCreatureTab.Controls.Add(this.coordY_textBox);
-            this.CreateCreatureTab.Controls.Add(this.coordX_textBox);
-            this.CreateCreatureTab.Controls.Add(this.coordZ);
-            this.CreateCreatureTab.Controls.Add(this.coordY);
-            this.CreateCreatureTab.Controls.Add(this.coordX);
-            this.CreateCreatureTab.Controls.Add(this.createCreatureButton);
-            this.CreateCreatureTab.Controls.Add(this.Level_ComboBox);
+            this.CreateCreatureTab.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.CreateCreatureTab.Controls.Add(this.CC_Panel_Buttons);
+            this.CreateCreatureTab.Controls.Add(this.CC_Panel_Main);
             this.CreateCreatureTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CreateCreatureTab.Location = new System.Drawing.Point(4, 22);
             this.CreateCreatureTab.Name = "CreateCreatureTab";
             this.CreateCreatureTab.Padding = new System.Windows.Forms.Padding(3);
-            this.CreateCreatureTab.Size = new System.Drawing.Size(461, 452);
+            this.CreateCreatureTab.Size = new System.Drawing.Size(457, 451);
             this.CreateCreatureTab.TabIndex = 0;
             this.CreateCreatureTab.Text = "CreateCreature";
             // 
+            // CC_Panel_Buttons
+            // 
+            this.CC_Panel_Buttons.Controls.Add(this.createCreatureButton);
+            this.CC_Panel_Buttons.Location = new System.Drawing.Point(6, 406);
+            this.CC_Panel_Buttons.Name = "CC_Panel_Buttons";
+            this.CC_Panel_Buttons.Size = new System.Drawing.Size(446, 35);
+            this.CC_Panel_Buttons.TabIndex = 53;
+            // 
+            // createCreatureButton
+            // 
+            this.createCreatureButton.Location = new System.Drawing.Point(296, 3);
+            this.createCreatureButton.Name = "createCreatureButton";
+            this.createCreatureButton.Size = new System.Drawing.Size(132, 27);
+            this.createCreatureButton.TabIndex = 26;
+            this.createCreatureButton.Text = "Create Creature";
+            this.createCreatureButton.UseVisualStyleBackColor = true;
+            this.createCreatureButton.Click += new System.EventHandler(this.CreateCreatureButton_Click);
+            // 
+            // CC_Panel_Main
+            // 
+            this.CC_Panel_Main.AutoScroll = true;
+            this.CC_Panel_Main.Controls.Add(this.CC_SetAppearence_Panel);
+            this.CC_Panel_Main.Controls.Add(this.PickColor_Button);
+            this.CC_Panel_Main.Controls.Add(this.PickClassIdList);
+            this.CC_Panel_Main.Controls.Add(this.IsNpc_checkBox);
+            this.CC_Panel_Main.Controls.Add(this.PickedClassId);
+            this.CC_Panel_Main.Controls.Add(this.PickClassId_button);
+            this.CC_Panel_Main.Controls.Add(this.Comment_textBox);
+            this.CC_Panel_Main.Controls.Add(this.Comment);
+            this.CC_Panel_Main.Controls.Add(this.MaxHitPoints_textBox);
+            this.CC_Panel_Main.Controls.Add(this.NameId_textBox);
+            this.CC_Panel_Main.Controls.Add(this.Faction_textBox);
+            this.CC_Panel_Main.Controls.Add(this.NameId);
+            this.CC_Panel_Main.Controls.Add(this.MaxHitPoints);
+            this.CC_Panel_Main.Controls.Add(this.Level);
+            this.CC_Panel_Main.Controls.Add(this.Faction);
+            this.CC_Panel_Main.Controls.Add(this.ClassId_textBox);
+            this.CC_Panel_Main.Controls.Add(this.ClassId);
+            this.CC_Panel_Main.Controls.Add(this.rotation_textBox);
+            this.CC_Panel_Main.Controls.Add(this.rotation);
+            this.CC_Panel_Main.Controls.Add(this.coordZ_textBox);
+            this.CC_Panel_Main.Controls.Add(this.coordY_textBox);
+            this.CC_Panel_Main.Controls.Add(this.coordX_textBox);
+            this.CC_Panel_Main.Controls.Add(this.coordZ);
+            this.CC_Panel_Main.Controls.Add(this.coordY);
+            this.CC_Panel_Main.Controls.Add(this.coordX);
+            this.CC_Panel_Main.Controls.Add(this.Level_ComboBox);
+            this.CC_Panel_Main.Controls.Add(this.CC_SetAppearence_CheckButton);
+            this.CC_Panel_Main.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CC_Panel_Main.Location = new System.Drawing.Point(1, 1);
+            this.CC_Panel_Main.Name = "CC_Panel_Main";
+            this.CC_Panel_Main.Size = new System.Drawing.Size(447, 399);
+            this.CC_Panel_Main.TabIndex = 52;
+            // 
+            // CC_SetAppearence_Panel
+            // 
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Legs_Panel);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Torso_Panel);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Gloves_Panel);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Shoes_Panel);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Helmet_Panel);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Hair_Panel);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Face_Panel);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_PickColors_Label);
+            this.CC_SetAppearence_Panel.Controls.Add(this.label7);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Legs_ComboBox);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Weapon_ComboBox);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Hair_ComboBox);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Helmet_ComboBox);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Shoes_ComboBox);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Gloves_ComboBox);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Torso_ComboBox);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Face_ComboBox);
+            this.CC_SetAppearence_Panel.Controls.Add(this.label6);
+            this.CC_SetAppearence_Panel.Controls.Add(this.label1);
+            this.CC_SetAppearence_Panel.Controls.Add(this.label5);
+            this.CC_SetAppearence_Panel.Controls.Add(this.label4);
+            this.CC_SetAppearence_Panel.Controls.Add(this.label3);
+            this.CC_SetAppearence_Panel.Controls.Add(this.label2);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Appearence_Hair);
+            this.CC_SetAppearence_Panel.Controls.Add(this.CC_Appearence_Face);
+            this.CC_SetAppearence_Panel.Location = new System.Drawing.Point(9, 207);
+            this.CC_SetAppearence_Panel.Name = "CC_SetAppearence_Panel";
+            this.CC_SetAppearence_Panel.Size = new System.Drawing.Size(411, 231);
+            this.CC_SetAppearence_Panel.TabIndex = 78;
+            this.CC_SetAppearence_Panel.Visible = false;
+            // 
+            // CC_Legs_Panel
+            // 
+            this.CC_Legs_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CC_Legs_Panel.Location = new System.Drawing.Point(321, 169);
+            this.CC_Legs_Panel.Name = "CC_Legs_Panel";
+            this.CC_Legs_Panel.Size = new System.Drawing.Size(87, 21);
+            this.CC_Legs_Panel.TabIndex = 25;
+            this.CC_Legs_Panel.Click += new System.EventHandler(this.PickColorHue);
+            // 
+            // CC_Torso_Panel
+            // 
+            this.CC_Torso_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CC_Torso_Panel.Location = new System.Drawing.Point(321, 146);
+            this.CC_Torso_Panel.Name = "CC_Torso_Panel";
+            this.CC_Torso_Panel.Size = new System.Drawing.Size(87, 21);
+            this.CC_Torso_Panel.TabIndex = 25;
+            this.CC_Torso_Panel.Click += new System.EventHandler(this.PickColorHue);
+            // 
+            // CC_Gloves_Panel
+            // 
+            this.CC_Gloves_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CC_Gloves_Panel.Location = new System.Drawing.Point(321, 119);
+            this.CC_Gloves_Panel.Name = "CC_Gloves_Panel";
+            this.CC_Gloves_Panel.Size = new System.Drawing.Size(87, 21);
+            this.CC_Gloves_Panel.TabIndex = 25;
+            this.CC_Gloves_Panel.Click += new System.EventHandler(this.PickColorHue);
+            // 
+            // CC_Shoes_Panel
+            // 
+            this.CC_Shoes_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CC_Shoes_Panel.Location = new System.Drawing.Point(321, 92);
+            this.CC_Shoes_Panel.Name = "CC_Shoes_Panel";
+            this.CC_Shoes_Panel.Size = new System.Drawing.Size(87, 21);
+            this.CC_Shoes_Panel.TabIndex = 25;
+            this.CC_Shoes_Panel.Click += new System.EventHandler(this.PickColorHue);
+            // 
+            // CC_Helmet_Panel
+            // 
+            this.CC_Helmet_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CC_Helmet_Panel.Location = new System.Drawing.Point(321, 66);
+            this.CC_Helmet_Panel.Name = "CC_Helmet_Panel";
+            this.CC_Helmet_Panel.Size = new System.Drawing.Size(87, 21);
+            this.CC_Helmet_Panel.TabIndex = 25;
+            this.CC_Helmet_Panel.Click += new System.EventHandler(this.PickColorHue);
+            // 
+            // CC_Hair_Panel
+            // 
+            this.CC_Hair_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CC_Hair_Panel.Location = new System.Drawing.Point(321, 41);
+            this.CC_Hair_Panel.Name = "CC_Hair_Panel";
+            this.CC_Hair_Panel.Size = new System.Drawing.Size(87, 21);
+            this.CC_Hair_Panel.TabIndex = 25;
+            this.CC_Hair_Panel.Click += new System.EventHandler(this.PickColorHue);
+            // 
+            // CC_Face_Panel
+            // 
+            this.CC_Face_Panel.BackColor = System.Drawing.Color.Silver;
+            this.CC_Face_Panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.CC_Face_Panel.Location = new System.Drawing.Point(321, 14);
+            this.CC_Face_Panel.Name = "CC_Face_Panel";
+            this.CC_Face_Panel.Size = new System.Drawing.Size(87, 21);
+            this.CC_Face_Panel.TabIndex = 24;
+            this.CC_Face_Panel.Click += new System.EventHandler(this.PickColorHue);
+            // 
+            // CC_PickColors_Label
+            // 
+            this.CC_PickColors_Label.AutoSize = true;
+            this.CC_PickColors_Label.Location = new System.Drawing.Point(337, 199);
+            this.CC_PickColors_Label.Name = "CC_PickColors_Label";
+            this.CC_PickColors_Label.Size = new System.Drawing.Size(68, 15);
+            this.CC_PickColors_Label.TabIndex = 23;
+            this.CC_PickColors_Label.Text = "Pick Colors";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(54, -4);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(357, 15);
+            this.label7.TabIndex = 22;
+            this.label7.Text = "Appearence will be set only if this is visible            (face/skin color)";
+            // 
+            // CC_Legs_ComboBox
+            // 
+            this.CC_Legs_ComboBox.FormattingEnabled = true;
+            this.CC_Legs_ComboBox.Location = new System.Drawing.Point(65, 169);
+            this.CC_Legs_ComboBox.Name = "CC_Legs_ComboBox";
+            this.CC_Legs_ComboBox.Size = new System.Drawing.Size(250, 23);
+            this.CC_Legs_ComboBox.TabIndex = 21;
+            // 
+            // CC_Weapon_ComboBox
+            // 
+            this.CC_Weapon_ComboBox.FormattingEnabled = true;
+            this.CC_Weapon_ComboBox.Location = new System.Drawing.Point(65, 196);
+            this.CC_Weapon_ComboBox.Name = "CC_Weapon_ComboBox";
+            this.CC_Weapon_ComboBox.Size = new System.Drawing.Size(250, 23);
+            this.CC_Weapon_ComboBox.TabIndex = 21;
+            // 
+            // CC_Hair_ComboBox
+            // 
+            this.CC_Hair_ComboBox.FormattingEnabled = true;
+            this.CC_Hair_ComboBox.Location = new System.Drawing.Point(65, 41);
+            this.CC_Hair_ComboBox.Name = "CC_Hair_ComboBox";
+            this.CC_Hair_ComboBox.Size = new System.Drawing.Size(250, 23);
+            this.CC_Hair_ComboBox.TabIndex = 20;
+            // 
+            // CC_Helmet_ComboBox
+            // 
+            this.CC_Helmet_ComboBox.FormattingEnabled = true;
+            this.CC_Helmet_ComboBox.Location = new System.Drawing.Point(65, 66);
+            this.CC_Helmet_ComboBox.Name = "CC_Helmet_ComboBox";
+            this.CC_Helmet_ComboBox.Size = new System.Drawing.Size(250, 23);
+            this.CC_Helmet_ComboBox.TabIndex = 19;
+            // 
+            // CC_Shoes_ComboBox
+            // 
+            this.CC_Shoes_ComboBox.FormattingEnabled = true;
+            this.CC_Shoes_ComboBox.Location = new System.Drawing.Point(65, 92);
+            this.CC_Shoes_ComboBox.Name = "CC_Shoes_ComboBox";
+            this.CC_Shoes_ComboBox.Size = new System.Drawing.Size(250, 23);
+            this.CC_Shoes_ComboBox.TabIndex = 18;
+            // 
+            // CC_Gloves_ComboBox
+            // 
+            this.CC_Gloves_ComboBox.FormattingEnabled = true;
+            this.CC_Gloves_ComboBox.Location = new System.Drawing.Point(65, 118);
+            this.CC_Gloves_ComboBox.Name = "CC_Gloves_ComboBox";
+            this.CC_Gloves_ComboBox.Size = new System.Drawing.Size(250, 23);
+            this.CC_Gloves_ComboBox.TabIndex = 17;
+            // 
+            // CC_Torso_ComboBox
+            // 
+            this.CC_Torso_ComboBox.FormattingEnabled = true;
+            this.CC_Torso_ComboBox.Location = new System.Drawing.Point(65, 144);
+            this.CC_Torso_ComboBox.Name = "CC_Torso_ComboBox";
+            this.CC_Torso_ComboBox.Size = new System.Drawing.Size(250, 23);
+            this.CC_Torso_ComboBox.TabIndex = 16;
+            // 
+            // CC_Face_ComboBox
+            // 
+            this.CC_Face_ComboBox.FormattingEnabled = true;
+            this.CC_Face_ComboBox.Location = new System.Drawing.Point(65, 14);
+            this.CC_Face_ComboBox.Name = "CC_Face_ComboBox";
+            this.CC_Face_ComboBox.Size = new System.Drawing.Size(250, 23);
+            this.CC_Face_ComboBox.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(11, 199);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 15);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Weapon";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(11, 173);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 15);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Legs";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(11, 147);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(38, 15);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Torso";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(11, 121);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 15);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Gloves";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(11, 95);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 15);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Shoes";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(11, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 15);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Helmet";
+            // 
+            // CC_Appearence_Hair
+            // 
+            this.CC_Appearence_Hair.AutoSize = true;
+            this.CC_Appearence_Hair.Location = new System.Drawing.Point(11, 43);
+            this.CC_Appearence_Hair.Name = "CC_Appearence_Hair";
+            this.CC_Appearence_Hair.Size = new System.Drawing.Size(30, 15);
+            this.CC_Appearence_Hair.TabIndex = 2;
+            this.CC_Appearence_Hair.Text = "Hair";
+            // 
+            // CC_Appearence_Face
+            // 
+            this.CC_Appearence_Face.AutoSize = true;
+            this.CC_Appearence_Face.Location = new System.Drawing.Point(11, 17);
+            this.CC_Appearence_Face.Name = "CC_Appearence_Face";
+            this.CC_Appearence_Face.Size = new System.Drawing.Size(34, 15);
+            this.CC_Appearence_Face.TabIndex = 0;
+            this.CC_Appearence_Face.Text = "Face";
+            // 
             // PickColor_Button
             // 
-            this.PickColor_Button.Location = new System.Drawing.Point(6, 417);
+            this.PickColor_Button.Location = new System.Drawing.Point(12, 900);
             this.PickColor_Button.Name = "PickColor_Button";
             this.PickColor_Button.Size = new System.Drawing.Size(75, 23);
-            this.PickColor_Button.TabIndex = 51;
+            this.PickColor_Button.TabIndex = 76;
             this.PickColor_Button.Text = "PickColor";
             this.PickColor_Button.UseVisualStyleBackColor = true;
-            this.PickColor_Button.Click += new System.EventHandler(this.PickColorButton_OnClick);
             // 
             // PickClassIdList
             // 
             this.PickClassIdList.FormattingEnabled = true;
-            this.PickClassIdList.Location = new System.Drawing.Point(86, 10);
+            this.PickClassIdList.ItemHeight = 15;
+            this.PickClassIdList.Location = new System.Drawing.Point(93, 5);
             this.PickClassIdList.Name = "PickClassIdList";
-            this.PickClassIdList.Size = new System.Drawing.Size(272, 199);
-            this.PickClassIdList.TabIndex = 48;
+            this.PickClassIdList.Size = new System.Drawing.Size(268, 214);
+            this.PickClassIdList.TabIndex = 73;
             this.PickClassIdList.Visible = false;
-            this.PickClassIdList.Click += new System.EventHandler(this.LetTest);
+            this.PickClassIdList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PickClassId_MouseClick);
             // 
             // IsNpc_checkBox
             // 
             this.IsNpc_checkBox.AutoSize = true;
-            this.IsNpc_checkBox.Location = new System.Drawing.Point(6, 42);
+            this.IsNpc_checkBox.Location = new System.Drawing.Point(9, 37);
             this.IsNpc_checkBox.Name = "IsNpc_checkBox";
-            this.IsNpc_checkBox.Size = new System.Drawing.Size(53, 17);
-            this.IsNpc_checkBox.TabIndex = 49;
+            this.IsNpc_checkBox.Size = new System.Drawing.Size(57, 19);
+            this.IsNpc_checkBox.TabIndex = 74;
             this.IsNpc_checkBox.Text = "isNpc";
             this.IsNpc_checkBox.UseVisualStyleBackColor = true;
             // 
             // PickedClassId
             // 
             this.PickedClassId.AutoSize = true;
-            this.PickedClassId.Location = new System.Drawing.Point(238, 14);
+            this.PickedClassId.Location = new System.Drawing.Point(241, 9);
             this.PickedClassId.Name = "PickedClassId";
-            this.PickedClassId.Size = new System.Drawing.Size(0, 13);
-            this.PickedClassId.TabIndex = 47;
+            this.PickedClassId.Size = new System.Drawing.Size(0, 15);
+            this.PickedClassId.TabIndex = 72;
             // 
             // PickClassId_button
             // 
-            this.PickClassId_button.Location = new System.Drawing.Point(6, 8);
+            this.PickClassId_button.Location = new System.Drawing.Point(9, 3);
             this.PickClassId_button.Name = "PickClassId_button";
             this.PickClassId_button.Size = new System.Drawing.Size(78, 22);
-            this.PickClassId_button.TabIndex = 46;
+            this.PickClassId_button.TabIndex = 71;
             this.PickClassId_button.Text = "Pick ClassId";
             this.PickClassId_button.UseVisualStyleBackColor = true;
             this.PickClassId_button.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PickClassId_MouseClick);
             // 
             // Comment_textBox
             // 
-            this.Comment_textBox.Location = new System.Drawing.Point(164, 161);
+            this.Comment_textBox.Location = new System.Drawing.Point(167, 156);
             this.Comment_textBox.Name = "Comment_textBox";
-            this.Comment_textBox.Size = new System.Drawing.Size(194, 20);
-            this.Comment_textBox.TabIndex = 45;
+            this.Comment_textBox.Size = new System.Drawing.Size(194, 21);
+            this.Comment_textBox.TabIndex = 70;
             this.Comment_textBox.Text = "0";
             // 
             // Comment
             // 
             this.Comment.AutoSize = true;
-            this.Comment.Location = new System.Drawing.Point(90, 164);
+            this.Comment.Location = new System.Drawing.Point(93, 159);
             this.Comment.Name = "Comment";
-            this.Comment.Size = new System.Drawing.Size(50, 13);
-            this.Comment.TabIndex = 44;
+            this.Comment.Size = new System.Drawing.Size(59, 15);
+            this.Comment.TabIndex = 69;
             this.Comment.Text = "comment";
             // 
             // MaxHitPoints_textBox
             // 
-            this.MaxHitPoints_textBox.Location = new System.Drawing.Point(163, 99);
+            this.MaxHitPoints_textBox.Location = new System.Drawing.Point(166, 94);
             this.MaxHitPoints_textBox.Name = "MaxHitPoints_textBox";
-            this.MaxHitPoints_textBox.Size = new System.Drawing.Size(57, 20);
-            this.MaxHitPoints_textBox.TabIndex = 42;
+            this.MaxHitPoints_textBox.Size = new System.Drawing.Size(57, 21);
+            this.MaxHitPoints_textBox.TabIndex = 68;
             this.MaxHitPoints_textBox.Text = "0";
             this.MaxHitPoints_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // NameId_textBox
             // 
-            this.NameId_textBox.Location = new System.Drawing.Point(164, 129);
+            this.NameId_textBox.Location = new System.Drawing.Point(167, 124);
             this.NameId_textBox.Name = "NameId_textBox";
-            this.NameId_textBox.Size = new System.Drawing.Size(57, 20);
-            this.NameId_textBox.TabIndex = 41;
+            this.NameId_textBox.Size = new System.Drawing.Size(57, 21);
+            this.NameId_textBox.TabIndex = 67;
             this.NameId_textBox.Text = "0";
             this.NameId_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // Faction_textBox
             // 
-            this.Faction_textBox.Location = new System.Drawing.Point(163, 39);
+            this.Faction_textBox.Location = new System.Drawing.Point(166, 34);
             this.Faction_textBox.Name = "Faction_textBox";
-            this.Faction_textBox.Size = new System.Drawing.Size(57, 20);
-            this.Faction_textBox.TabIndex = 40;
+            this.Faction_textBox.Size = new System.Drawing.Size(57, 21);
+            this.Faction_textBox.TabIndex = 66;
             this.Faction_textBox.Text = "0";
             this.Faction_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
             // 
             // NameId
             // 
             this.NameId.AutoSize = true;
-            this.NameId.Location = new System.Drawing.Point(89, 132);
+            this.NameId.Location = new System.Drawing.Point(92, 127);
             this.NameId.Name = "NameId";
-            this.NameId.Size = new System.Drawing.Size(42, 13);
-            this.NameId.TabIndex = 39;
+            this.NameId.Size = new System.Drawing.Size(49, 15);
+            this.NameId.TabIndex = 65;
             this.NameId.Text = "nameId";
             // 
             // MaxHitPoints
             // 
             this.MaxHitPoints.AutoSize = true;
-            this.MaxHitPoints.Location = new System.Drawing.Point(89, 102);
+            this.MaxHitPoints.Location = new System.Drawing.Point(92, 97);
             this.MaxHitPoints.Name = "MaxHitPoints";
-            this.MaxHitPoints.Size = new System.Drawing.Size(68, 13);
-            this.MaxHitPoints.TabIndex = 38;
+            this.MaxHitPoints.Size = new System.Drawing.Size(80, 15);
+            this.MaxHitPoints.TabIndex = 64;
             this.MaxHitPoints.Text = "maxHitPoints";
             // 
             // Level
             // 
             this.Level.AutoSize = true;
-            this.Level.Location = new System.Drawing.Point(89, 70);
+            this.Level.Location = new System.Drawing.Point(92, 65);
             this.Level.Name = "Level";
-            this.Level.Size = new System.Drawing.Size(29, 13);
-            this.Level.TabIndex = 37;
+            this.Level.Size = new System.Drawing.Size(32, 15);
+            this.Level.TabIndex = 63;
             this.Level.Text = "level";
             // 
             // Faction
             // 
             this.Faction.AutoSize = true;
-            this.Faction.Location = new System.Drawing.Point(89, 42);
+            this.Faction.Location = new System.Drawing.Point(92, 37);
             this.Faction.Name = "Faction";
-            this.Faction.Size = new System.Drawing.Size(39, 13);
-            this.Faction.TabIndex = 36;
+            this.Faction.Size = new System.Drawing.Size(43, 15);
+            this.Faction.TabIndex = 62;
             this.Faction.Text = "faction";
             // 
             // ClassId_textBox
             // 
-            this.ClassId_textBox.Location = new System.Drawing.Point(164, 10);
+            this.ClassId_textBox.Location = new System.Drawing.Point(167, 5);
             this.ClassId_textBox.Name = "ClassId_textBox";
-            this.ClassId_textBox.Size = new System.Drawing.Size(57, 20);
-            this.ClassId_textBox.TabIndex = 35;
+            this.ClassId_textBox.Size = new System.Drawing.Size(57, 21);
+            this.ClassId_textBox.TabIndex = 61;
             this.ClassId_textBox.Text = "0";
+            this.ClassId_textBox.TextChanged += new System.EventHandler(this.ClassId_textBox_Leave);
             this.ClassId_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
-            this.ClassId_textBox.Leave += new System.EventHandler(this.ClassId_textBox_Leave);
             // 
             // ClassId
             // 
             this.ClassId.AutoSize = true;
-            this.ClassId.Location = new System.Drawing.Point(89, 14);
+            this.ClassId.Location = new System.Drawing.Point(92, 9);
             this.ClassId.Name = "ClassId";
-            this.ClassId.Size = new System.Drawing.Size(40, 13);
-            this.ClassId.TabIndex = 34;
+            this.ClassId.Size = new System.Drawing.Size(45, 15);
+            this.ClassId.TabIndex = 60;
             this.ClassId.Text = "classId";
             // 
             // rotation_textBox
             // 
-            this.rotation_textBox.Location = new System.Drawing.Point(162, 328);
+            this.rotation_textBox.Location = new System.Drawing.Point(169, 774);
             this.rotation_textBox.Name = "rotation_textBox";
-            this.rotation_textBox.Size = new System.Drawing.Size(58, 20);
-            this.rotation_textBox.TabIndex = 33;
+            this.rotation_textBox.Size = new System.Drawing.Size(58, 21);
+            this.rotation_textBox.TabIndex = 59;
             this.rotation_textBox.Text = "0";
-            this.rotation_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // rotation
             // 
             this.rotation.AutoSize = true;
-            this.rotation.Location = new System.Drawing.Point(89, 335);
+            this.rotation.Location = new System.Drawing.Point(96, 781);
             this.rotation.Name = "rotation";
-            this.rotation.Size = new System.Drawing.Size(42, 13);
-            this.rotation.TabIndex = 32;
+            this.rotation.Size = new System.Drawing.Size(48, 15);
+            this.rotation.TabIndex = 58;
             this.rotation.Text = "rotation";
             // 
             // coordZ_textBox
             // 
-            this.coordZ_textBox.Location = new System.Drawing.Point(162, 298);
+            this.coordZ_textBox.Location = new System.Drawing.Point(169, 744);
             this.coordZ_textBox.Name = "coordZ_textBox";
-            this.coordZ_textBox.Size = new System.Drawing.Size(58, 20);
-            this.coordZ_textBox.TabIndex = 31;
+            this.coordZ_textBox.Size = new System.Drawing.Size(58, 21);
+            this.coordZ_textBox.TabIndex = 57;
             this.coordZ_textBox.Text = "0";
-            this.coordZ_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // coordY_textBox
             // 
-            this.coordY_textBox.Location = new System.Drawing.Point(162, 271);
+            this.coordY_textBox.Location = new System.Drawing.Point(169, 717);
             this.coordY_textBox.Name = "coordY_textBox";
-            this.coordY_textBox.Size = new System.Drawing.Size(58, 20);
-            this.coordY_textBox.TabIndex = 30;
+            this.coordY_textBox.Size = new System.Drawing.Size(58, 21);
+            this.coordY_textBox.TabIndex = 56;
             this.coordY_textBox.Text = "0";
-            this.coordY_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // coordX_textBox
             // 
-            this.coordX_textBox.Location = new System.Drawing.Point(162, 244);
+            this.coordX_textBox.Location = new System.Drawing.Point(169, 690);
             this.coordX_textBox.Name = "coordX_textBox";
-            this.coordX_textBox.Size = new System.Drawing.Size(58, 20);
-            this.coordX_textBox.TabIndex = 29;
+            this.coordX_textBox.Size = new System.Drawing.Size(58, 21);
+            this.coordX_textBox.TabIndex = 55;
             this.coordX_textBox.Text = "0";
-            this.coordX_textBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckForDecimal);
             // 
             // coordZ
             // 
             this.coordZ.AutoSize = true;
-            this.coordZ.Location = new System.Drawing.Point(89, 305);
+            this.coordZ.Location = new System.Drawing.Point(96, 751);
             this.coordZ.Name = "coordZ";
-            this.coordZ.Size = new System.Drawing.Size(41, 13);
-            this.coordZ.TabIndex = 28;
+            this.coordZ.Size = new System.Drawing.Size(45, 15);
+            this.coordZ.TabIndex = 54;
             this.coordZ.Text = "coordZ";
             // 
             // coordY
             // 
             this.coordY.AutoSize = true;
-            this.coordY.Location = new System.Drawing.Point(89, 278);
+            this.coordY.Location = new System.Drawing.Point(96, 724);
             this.coordY.Name = "coordY";
-            this.coordY.Size = new System.Drawing.Size(41, 13);
-            this.coordY.TabIndex = 27;
+            this.coordY.Size = new System.Drawing.Size(45, 15);
+            this.coordY.TabIndex = 53;
             this.coordY.Text = "coordY";
             // 
             // coordX
             // 
             this.coordX.AutoSize = true;
-            this.coordX.Location = new System.Drawing.Point(89, 251);
+            this.coordX.Location = new System.Drawing.Point(96, 697);
             this.coordX.Name = "coordX";
-            this.coordX.Size = new System.Drawing.Size(41, 13);
-            this.coordX.TabIndex = 26;
+            this.coordX.Size = new System.Drawing.Size(46, 15);
+            this.coordX.TabIndex = 52;
             this.coordX.Text = "coordX";
-            // 
-            // createCreatureButton
-            // 
-            this.createCreatureButton.Location = new System.Drawing.Point(316, 417);
-            this.createCreatureButton.Name = "createCreatureButton";
-            this.createCreatureButton.Size = new System.Drawing.Size(132, 27);
-            this.createCreatureButton.TabIndex = 25;
-            this.createCreatureButton.Text = "Create Creature";
-            this.createCreatureButton.UseVisualStyleBackColor = true;
-            this.createCreatureButton.Click += new System.EventHandler(this.CreateCreatureButton_Click);
             // 
             // Level_ComboBox
             // 
@@ -421,11 +722,21 @@
             "48",
             "49",
             "50"});
-            this.Level_ComboBox.Location = new System.Drawing.Point(164, 67);
+            this.Level_ComboBox.Location = new System.Drawing.Point(167, 62);
             this.Level_ComboBox.Name = "Level_ComboBox";
-            this.Level_ComboBox.Size = new System.Drawing.Size(57, 21);
-            this.Level_ComboBox.TabIndex = 50;
-            this.Level_ComboBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPressCheckIsNumber);
+            this.Level_ComboBox.Size = new System.Drawing.Size(57, 23);
+            this.Level_ComboBox.TabIndex = 75;
+            // 
+            // CC_SetAppearence_CheckButton
+            // 
+            this.CC_SetAppearence_CheckButton.AutoSize = true;
+            this.CC_SetAppearence_CheckButton.Location = new System.Drawing.Point(9, 184);
+            this.CC_SetAppearence_CheckButton.Name = "CC_SetAppearence_CheckButton";
+            this.CC_SetAppearence_CheckButton.Size = new System.Drawing.Size(110, 19);
+            this.CC_SetAppearence_CheckButton.TabIndex = 77;
+            this.CC_SetAppearence_CheckButton.Text = "SetAppearence";
+            this.CC_SetAppearence_CheckButton.UseVisualStyleBackColor = true;
+            this.CC_SetAppearence_CheckButton.CheckedChanged += new System.EventHandler(this.CC_SetAppearence_CheckButton_CheckedChanged);
             // 
             // ManageCreatureTab
             // 
@@ -458,7 +769,7 @@
             this.ManageCreatureTab.Location = new System.Drawing.Point(4, 22);
             this.ManageCreatureTab.Name = "ManageCreatureTab";
             this.ManageCreatureTab.Padding = new System.Windows.Forms.Padding(3);
-            this.ManageCreatureTab.Size = new System.Drawing.Size(461, 452);
+            this.ManageCreatureTab.Size = new System.Drawing.Size(457, 451);
             this.ManageCreatureTab.TabIndex = 1;
             this.ManageCreatureTab.Text = "ManageCreature";
             // 
@@ -687,18 +998,27 @@
             this.label11.TabIndex = 50;
             this.label11.Text = "label11";
             // 
+            // CC_ColorDialog
+            // 
+            this.CC_ColorDialog.FullOpen = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(468, 481);
-            this.Controls.Add(this.CreateCreatreTab);
+            this.ClientSize = new System.Drawing.Size(469, 480);
+            this.Controls.Add(this.CC_TabMenu);
             this.Name = "Form1";
             this.Text = "Creature Creator";
-            this.CreateCreatreTab.ResumeLayout(false);
+            this.CC_TabMenu.ResumeLayout(false);
             this.CreateCreatureTab.ResumeLayout(false);
-            this.CreateCreatureTab.PerformLayout();
+            this.CC_Panel_Buttons.ResumeLayout(false);
+            this.CC_Panel_Main.ResumeLayout(false);
+            this.CC_Panel_Main.PerformLayout();
+            this.CC_SetAppearence_Panel.ResumeLayout(false);
+            this.CC_SetAppearence_Panel.PerformLayout();
             this.ManageCreatureTab.ResumeLayout(false);
             this.ManageCreatureTab.PerformLayout();
             this.ResumeLayout(false);
@@ -707,32 +1027,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl CreateCreatreTab;
+        private System.Windows.Forms.TabControl CC_TabMenu;
         private System.Windows.Forms.TabPage CreateCreatureTab;
-        private System.Windows.Forms.CheckBox IsNpc_checkBox;
-        private System.Windows.Forms.ListBox PickClassIdList;
-        private System.Windows.Forms.Label PickedClassId;
-        private System.Windows.Forms.Button PickClassId_button;
-        private System.Windows.Forms.TextBox Comment_textBox;
-        private System.Windows.Forms.Label Comment;
-        private System.Windows.Forms.TextBox MaxHitPoints_textBox;
-        private System.Windows.Forms.TextBox NameId_textBox;
-        private System.Windows.Forms.TextBox Faction_textBox;
-        private System.Windows.Forms.Label NameId;
-        private System.Windows.Forms.Label MaxHitPoints;
-        private System.Windows.Forms.Label Level;
-        private System.Windows.Forms.Label Faction;
-        private System.Windows.Forms.TextBox ClassId_textBox;
-        private System.Windows.Forms.Label ClassId;
-        private System.Windows.Forms.TextBox rotation_textBox;
-        private System.Windows.Forms.Label rotation;
-        private System.Windows.Forms.TextBox coordZ_textBox;
-        private System.Windows.Forms.TextBox coordY_textBox;
-        private System.Windows.Forms.TextBox coordX_textBox;
-        private System.Windows.Forms.Label coordZ;
-        private System.Windows.Forms.Label coordY;
-        private System.Windows.Forms.Label coordX;
-        private System.Windows.Forms.Button createCreatureButton;
         private System.Windows.Forms.TabPage ManageCreatureTab;
         private System.Windows.Forms.Label ManageCreature_ClassName_Label;
         private System.Windows.Forms.Button PickCreature;
@@ -759,9 +1055,62 @@
         private System.Windows.Forms.TextBox PickCreature_textBox;
         private System.Windows.Forms.Label PicCreature_Label;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox Level_ComboBox;
+        private System.Windows.Forms.Panel CC_Panel_Main;
         private System.Windows.Forms.Button PickColor_Button;
-        private System.Windows.Forms.ColorDialog PickColor_Dialog;
+        private System.Windows.Forms.ListBox PickClassIdList;
+        private System.Windows.Forms.CheckBox IsNpc_checkBox;
+        private System.Windows.Forms.Label PickedClassId;
+        private System.Windows.Forms.Button PickClassId_button;
+        private System.Windows.Forms.TextBox Comment_textBox;
+        private System.Windows.Forms.Label Comment;
+        private System.Windows.Forms.TextBox MaxHitPoints_textBox;
+        private System.Windows.Forms.TextBox NameId_textBox;
+        private System.Windows.Forms.TextBox Faction_textBox;
+        private System.Windows.Forms.Label NameId;
+        private System.Windows.Forms.Label MaxHitPoints;
+        private System.Windows.Forms.Label Level;
+        private System.Windows.Forms.Label Faction;
+        private System.Windows.Forms.TextBox ClassId_textBox;
+        private System.Windows.Forms.Label ClassId;
+        private System.Windows.Forms.ComboBox Level_ComboBox;
+        private System.Windows.Forms.Panel CC_Panel_Buttons;
+        private System.Windows.Forms.Button createCreatureButton;
+        private System.Windows.Forms.TextBox rotation_textBox;
+        private System.Windows.Forms.Label rotation;
+        private System.Windows.Forms.TextBox coordZ_textBox;
+        private System.Windows.Forms.TextBox coordY_textBox;
+        private System.Windows.Forms.TextBox coordX_textBox;
+        private System.Windows.Forms.Label coordZ;
+        private System.Windows.Forms.Label coordY;
+        private System.Windows.Forms.Label coordX;
+        private System.Windows.Forms.CheckBox CC_SetAppearence_CheckButton;
+        private System.Windows.Forms.Panel CC_SetAppearence_Panel;
+        private System.Windows.Forms.Label CC_Appearence_Face;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label CC_Appearence_Hair;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label CC_PickColors_Label;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox CC_Legs_ComboBox;
+        private System.Windows.Forms.ComboBox CC_Weapon_ComboBox;
+        private System.Windows.Forms.ComboBox CC_Hair_ComboBox;
+        private System.Windows.Forms.ComboBox CC_Helmet_ComboBox;
+        private System.Windows.Forms.ComboBox CC_Shoes_ComboBox;
+        private System.Windows.Forms.ComboBox CC_Gloves_ComboBox;
+        private System.Windows.Forms.ComboBox CC_Torso_ComboBox;
+        private System.Windows.Forms.ComboBox CC_Face_ComboBox;
+        private System.Windows.Forms.Panel CC_Legs_Panel;
+        private System.Windows.Forms.Panel CC_Torso_Panel;
+        private System.Windows.Forms.Panel CC_Gloves_Panel;
+        private System.Windows.Forms.Panel CC_Shoes_Panel;
+        private System.Windows.Forms.Panel CC_Helmet_Panel;
+        private System.Windows.Forms.Panel CC_Hair_Panel;
+        private System.Windows.Forms.Panel CC_Face_Panel;
+        private System.Windows.Forms.ColorDialog CC_ColorDialog;
     }
 }
 

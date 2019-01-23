@@ -15,6 +15,8 @@ namespace Rasa.Structures
         public List<AugmentationType> Augmentations { get; set; }   // entityClass.pyo
         public bool TargetFlag { get; set; }                        // entityClass.pyo
 
+        public EquipableClassEntry Equipable { get; set; }
+
         public int SkeletonId { get; set; }
         public int CameraCollideFlag { get; set; }
         public int CullingLayerType { get; set; }

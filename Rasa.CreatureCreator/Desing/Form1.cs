@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Rasa.CreatureCreator
@@ -12,6 +13,7 @@ namespace Rasa.CreatureCreator
         public Form1()
         {
             InitializeComponent();
+            CC_ComboBox_Load();
         }
 
         private void CreateCreatureButton_Click(object sender, EventArgs e)
@@ -106,7 +108,28 @@ namespace Rasa.CreatureCreator
                 return;
             }
 
-            MessageBox.Show($"created creature with:DbId {creature.DbId}");
+            if (CC_SetAppearence_CheckButton.Checked == true)
+            {
+
+                if (CC_Helmet_ComboBox.SelectedItem is ComboBoxItem helmet)
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 1, helmet.Value, new Color(CC_Helmet_Panel.BackColor).Hue);
+                if (CC_Shoes_ComboBox.SelectedItem is ComboBoxItem shoes)
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 2, shoes.Value, new Color(CC_Shoes_Panel.BackColor).Hue);
+                if (CC_Gloves_ComboBox.SelectedItem is ComboBoxItem gloves)
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 3, gloves.Value, new Color(CC_Helmet_Panel.BackColor).Hue);
+                if (CC_Weapon_ComboBox.SelectedItem is ComboBoxItem weapon)
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 13, weapon.Value, 0);   // weapons don't need color
+                if (CC_Hair_ComboBox.SelectedItem is ComboBoxItem hair)
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 14, hair.Value, new Color(CC_Hair_Panel.BackColor).Hue);
+                if (CC_Torso_ComboBox.SelectedItem is ComboBoxItem torso)
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 15, torso.Value, new Color(CC_Torso_Panel.BackColor).Hue);
+                if (CC_Legs_ComboBox.SelectedItem is ComboBoxItem legs)
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 16, legs.Value, new Color(CC_Legs_Panel.BackColor).Hue);
+                if (CC_Face_ComboBox.SelectedItem is ComboBoxItem face)
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 17, face.Value, new Color(CC_Face_Panel.BackColor).Hue);
+            }
+
+            MessageBox.Show($"Created Creature {creature.DbId}");
         }
 
         private void KeyPressCheckIsNumber(object sender, KeyPressEventArgs e)
@@ -317,9 +340,74 @@ namespace Rasa.CreatureCreator
             MessageBox.Show($"Update creature with: DbId {creature.DbId}");
         }
 
-        private void PickColorButton_OnClick(object sender, EventArgs e)
+        private void PickColorHue(object sender, EventArgs e)
         {
-            PickColor_Dialog.ShowDialog();
+            var panel = sender as Panel;
+
+            if (CC_ColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                var hue = new Color(CC_ColorDialog.Color).Hue;
+                panel.BackColor = CC_ColorDialog.Color;
+            }
+        }
+
+        private void CC_SetAppearence_CheckButton_CheckedChanged(object sender, EventArgs e)
+        {
+            var button = sender as CheckBox;
+
+           // CC_Panel_Main.AutoScrollPosition = new System.Drawing.Point(0, 50);
+
+            if (button.CheckState == CheckState.Checked)
+            {
+                CC_SetAppearence_Panel.Show();
+            }
+            else
+                CC_SetAppearence_Panel.Hide();
+        }
+
+        private void CC_ComboBox_Load()
+        {
+            foreach (var equipment in Program.LoadedEquipment)
+                switch(equipment.Value.Equipable.SlotId)
+                {
+                    case 1:
+                        CC_Helmet_ComboBox.Items.Add(new ComboBoxItem(equipment.Value.ClassName, equipment.Value.ClassId));
+                        break;
+                    case 2:
+                        CC_Shoes_ComboBox.Items.Add(new ComboBoxItem(equipment.Value.ClassName, equipment.Value.ClassId));
+                        break;
+                    case 3:
+                        CC_Gloves_ComboBox.Items.Add(new ComboBoxItem(equipment.Value.ClassName, equipment.Value.ClassId));
+                        break;
+                    case 13:
+                        CC_Weapon_ComboBox.Items.Add(new ComboBoxItem(equipment.Value.ClassName, equipment.Value.ClassId));
+                        break;
+                    case 14:
+                        CC_Hair_ComboBox.Items.Add(new ComboBoxItem(equipment.Value.ClassName, equipment.Value.ClassId));
+                        break;
+                    case 15:
+                        CC_Torso_ComboBox.Items.Add(new ComboBoxItem(equipment.Value.ClassName, equipment.Value.ClassId));
+                        break;
+                    case 16:
+                        CC_Legs_ComboBox.Items.Add(new ComboBoxItem(equipment.Value.ClassName, equipment.Value.ClassId));
+                        break;
+                    case 17:
+                        CC_Face_ComboBox.Items.Add(new ComboBoxItem(equipment.Value.ClassName, equipment.Value.ClassId));
+                        break;
+                    case 18:
+                    case 19:
+                    case 20:
+                    case 21:
+                    case 25:
+                    case 26:
+                    case 30:
+                    case 10000001:
+                        // ToDo
+                        break;
+                    default:
+                        MessageBox.Show($"not hadled {equipment.Value.Equipable.SlotId}");
+                        break;
+                }
         }
     }
 }

@@ -112,21 +112,21 @@ namespace Rasa.CreatureCreator
             {
 
                 if (CC_Helmet_ComboBox.SelectedItem is ComboBoxItem helmet)
-                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 1, helmet.Value, new Color(CC_Helmet_Panel.BackColor).Hue);
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 1, helmet.Value, new Color(CC_Helmet_Button.BackColor).Hue);
                 if (CC_Shoes_ComboBox.SelectedItem is ComboBoxItem shoes)
-                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 2, shoes.Value, new Color(CC_Shoes_Panel.BackColor).Hue);
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 2, shoes.Value, new Color(CC_Shoes_Button.BackColor).Hue);
                 if (CC_Gloves_ComboBox.SelectedItem is ComboBoxItem gloves)
-                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 3, gloves.Value, new Color(CC_Helmet_Panel.BackColor).Hue);
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 3, gloves.Value, new Color(CC_Helmet_Button.BackColor).Hue);
                 if (CC_Weapon_ComboBox.SelectedItem is ComboBoxItem weapon)
                     CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 13, weapon.Value, 0);   // weapons don't need color
                 if (CC_Hair_ComboBox.SelectedItem is ComboBoxItem hair)
-                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 14, hair.Value, new Color(CC_Hair_Panel.BackColor).Hue);
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 14, hair.Value, new Color(CC_Hair_Button.BackColor).Hue);
                 if (CC_Torso_ComboBox.SelectedItem is ComboBoxItem torso)
-                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 15, torso.Value, new Color(CC_Torso_Panel.BackColor).Hue);
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 15, torso.Value, new Color(CC_Torso_Button.BackColor).Hue);
                 if (CC_Legs_ComboBox.SelectedItem is ComboBoxItem legs)
-                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 16, legs.Value, new Color(CC_Legs_Panel.BackColor).Hue);
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 16, legs.Value, new Color(CC_Legs_Button.BackColor).Hue);
                 if (CC_Face_ComboBox.SelectedItem is ComboBoxItem face)
-                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 17, face.Value, new Color(CC_Face_Panel.BackColor).Hue);
+                    CreatureAppearanceTable.SetCreatureAppearance(creature.DbId, 17, face.Value, new Color(CC_Face_Button.BackColor).Hue);
             }
 
             MessageBox.Show($"Created Creature {creature.DbId}");
@@ -237,7 +237,7 @@ namespace Rasa.CreatureCreator
                 ManageCreature_ClassId_TextBox.Text = creature.ClassId.ToString();
                 ManageCreature_Faction_TextBox.Text = creature.Faction.ToString();
                 ManageCreature_Level_TextBox.Text = creature.Level.ToString();
-                ManageCreature_MaxHitPoints_TextBox.Text = creature.Level.ToString();
+                ManageCreature_MaxHitPoints_TextBox.Text = creature.MaxHitPoints.ToString();
                 ManageCreature_NameId_TextBox.Text = creature.NameId.ToString();
                 ManageCreature_Comment_TextBox.Text = creature.Comment;
                 ManageCreature_ClassName_Label.Text = Program.LoadedCreatures[creature.ClassId].ClassName;
@@ -342,12 +342,14 @@ namespace Rasa.CreatureCreator
 
         private void PickColorHue(object sender, EventArgs e)
         {
-            var panel = sender as Panel;
+            var button = sender as Button;
 
             if (CC_ColorDialog.ShowDialog() == DialogResult.OK)
             {
                 var hue = new Color(CC_ColorDialog.Color).Hue;
-                panel.BackColor = CC_ColorDialog.Color;
+                button.BackColor = CC_ColorDialog.Color;
+                button.Text = hue.ToString();
+                button.UseCompatibleTextRendering = true;
             }
         }
 

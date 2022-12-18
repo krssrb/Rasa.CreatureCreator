@@ -290,7 +290,6 @@ namespace Rasa.CreatureCreator
             this.CC_Face_Button.Name = "CC_Face_Button";
             this.CC_Face_Button.Size = new System.Drawing.Size(87, 21);
             this.CC_Face_Button.TabIndex = 25;
-            this.CC_Face_Button.UseVisualStyleBackColor = false;
             this.CC_Face_Button.Click += new System.EventHandler(this.PickColorHue);
             // 
             // CC_PickColors_Label
